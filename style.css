@@ -858,133 +858,200 @@ padding-top: 70px;
 /* Gallery Ends */
               /* Location Advantages Starts */
 .loc-bg {
-  background: url('/images/imgi_50_location-background.webp') no-repeat center center fixed;
-  background-size: cover;
-}
+            background: url('/images/imgi_50_location-background.webp') no-repeat center center fixed;
+            background-size: cover;
+        }
 
-.overlay-loc {
-  background-color: rgba(0, 0, 0, 0.6);
-  min-height: 100vh;
-  padding: 40px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
+        .overlay-loc {
+            background-color: rgba(0, 0, 0, 0.6);
+            min-height: 100vh;
+            padding: 40px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
 
-.location-container {
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  max-width: 1100px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-  gap: 20px;
-}
+        .location-container {
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            gap: 20px;
+        }
 
-.location-list {
-  flex: 1;
-  min-width: 260px;
-  max-height: 80vh;
-  overflow-y: auto;
-  font-size: 12px;
-  scrollbar-width: thin;
-}
+        .location-list {
+            flex: 1;
+            min-width: 260px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-size: 12px;
+            scrollbar-width: thin;
+        }
 
-.location-list h2 {
-  font-size: 30px;
-  text-align: center;
-  color: #fff;
-  font-family: serif;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+        .location-list h2 {
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+            font-family: serif;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.location-list h3 {
-  color: gold;
-  font-size: 13px;
-  margin-top: 14px;
-  margin-bottom: 5px;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  padding-bottom: 3px;
-}
+        .faq-section {
+            margin-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-.location-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 5px 10px;
-  margin-bottom: 5px;
-  border-left: 3px solid gold;
-  border-radius: 3px;
-  font-size: 11px;
-}
+        .faq-header {
+            background: rgba(255, 215, 0, 0.1);
+            color: gold;
+            font-size: 13px;
+            padding: 12px 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
 
-.location-item span {
-  font-weight: 500;
-}
+        .faq-header:hover {
+            background: rgba(255, 215, 0, 0.2);
+        }
 
-.map-image {
-  flex: 1;
-  min-width: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        .faq-header.active {
+            background: rgba(255, 215, 0, 0.15);
+        }
 
-.map-image img {
-  width: 100%;
-  max-width: 500px;
-  object-fit: contain;
-  border: 2px solid white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  cursor: zoom-in;
-}
+        .faq-icon {
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            color: gold;
+        }
 
-/* Modal Styling */
-.map-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0; top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-}
+        .faq-header.active .faq-icon {
+            transform: rotate(45deg);
+        }
 
-.map-modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  cursor: zoom-out;
-}
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+        }
 
-@media (max-width: 768px) {
-  .location-container {
-    flex-direction: column;
-    padding: 15px;
-  }
+        .faq-content.active {
+            max-height: 400px;
+            overflow-y: auto;
+        }
 
-  .location-list h2 {
-    font-size: 18px;
-  }
+        .location-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-left: 3px solid gold;
+            border-radius: 3px;
+            font-size: 11px;
+        }
 
-  .location-item {
-    font-size: 10px;
-    padding: 4px 8px;
-  }
+        .location-item span {
+            font-weight: 500;
+            color: #ccc;
+        }
 
-  .map-image img {
-    max-width: 100%;
-  }
-}
+        .map-image {
+            flex: 1;
+            min-width: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-image img {
+            width: 100%;
+            max-width: 500px;
+            object-fit: contain;
+            border: 2px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            cursor: zoom-in;
+        }
+
+        /* Modal Styling */
+        .map-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .map-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            cursor: zoom-out;
+        }
+
+        @media (max-width: 768px) {
+            .location-container {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .location-list h2 {
+                font-size: 18px;
+            }
+
+            .location-item {
+                font-size: 10px;
+                padding: 6px 12px;
+            }
+
+            .faq-header {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+
+            .map-image img {
+                max-width: 100%;
+            }
+        }
+
+        /* Custom scrollbar for webkit browsers */
+        .location-list::-webkit-scrollbar,
+        .faq-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .location-list::-webkit-scrollbar-track,
+        .faq-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .location-list::-webkit-scrollbar-thumb,
+        .faq-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 215, 0, 0.5);
+            border-radius: 3px;
+        }
                /* <!-- Contact Section Starts --> */
     .contact-section {
       display: flex;

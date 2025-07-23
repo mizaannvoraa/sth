@@ -281,9 +281,16 @@ window.addEventListener('load', () => {
 function openmodalplans() {
     document.getElementById('modal').style.display = 'flex';
   }
+  function openmodalfloorplans() {
+    document.getElementById('modalfloor').style.display = 'flex';
+  }
+  
   // Close modal
   document.getElementById('closeBtn').addEventListener('click', () => {
     document.getElementById('modal').style.display = 'none';
+  });
+   document.getElementById('closeBtnplan').addEventListener('click', () => {
+    document.getElementById('modalfloor').style.display = 'none';
   });
   function getUrlParameters() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -369,3 +376,51 @@ document.getElementById('modalPhone').addEventListener('input', function (e) {
 });
 // Modal Ends 
 // plans modal open 
+function toggleFAQ(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.faq-icon');
+            
+            // Close all other FAQ sections
+            const allHeaders = document.querySelectorAll('.faq-header');
+            const allContents = document.querySelectorAll('.faq-content');
+            
+            allHeaders.forEach(h => {
+                if (h !== header) {
+                    h.classList.remove('active');
+                    h.querySelector('.faq-icon').textContent = '+';
+                }
+            });
+            
+            allContents.forEach(c => {
+                if (c !== content) {
+                    c.classList.remove('active');
+                }
+            });
+            
+            // Toggle current section
+            header.classList.toggle('active');
+            content.classList.toggle('active');
+            
+            if (header.classList.contains('active')) {
+                icon.textContent = '+';
+            } else {
+                icon.textContent = '+';
+            }
+        }
+
+        function openModal() {
+            document.getElementById('mapModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('mapModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });

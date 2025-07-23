@@ -216,7 +216,7 @@
       <button class="filter-btn active" data-category="elevation">Elevation</button>
       <button class="filter-btn" data-category="amenities">Amenities</button>
       <button class="filter-btn" data-category="interior">Interior</button>
-      <button class="filter-btn" data-category="plans">Plans</button>
+      <button class="filter-btn" data-category="plans">Floor Plans</button>
     </div>
 
     <div class="gallery-grid">
@@ -226,26 +226,43 @@
  <div class="gallery-item" data-category="elevation"><img src="images/shethel3.webp" alt="Elevation" onclick="openModalGal(this.src)"></div>
 
       <!-- Amenities -->
-      <div class="gallery-item hidden" data-category="amenities"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d" alt="Amenities" onclick="openModalGal(this.src)"></div>
-      <div class="gallery-item hidden" data-category="amenities"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48" alt="Amenities" onclick="openModalGal(this.src)"></div>
+      <div class="gallery-item hidden" data-category="amenities"><img src="images/shetham1.webp" alt="Amenities" onclick="openModalGal(this.src)"></div>
+      <div class="gallery-item hidden" data-category="amenities"><img src="images/shetham2.webp" alt="Amenities" onclick="openModalGal(this.src)"></div>
+      <div class="gallery-item hidden" data-category="amenities"><img src="images/shetham3.webp" alt="Amenities" onclick="openModalGal(this.src)"></div>
+      <div class="gallery-item hidden" data-category="amenities"><img src="images/shetham4.webp" alt="Amenities" onclick="openModalGal(this.src)"></div>
 
       <!-- Interior -->
-      <div class="gallery-item hidden" data-category="interior"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" alt="Interior" onclick="openModalGal(this.src)"></div>
-      <div class="gallery-item hidden" data-category="interior"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" alt="Interior" onclick="openModalGal(this.src)"></div>
+      <div class="gallery-item hidden" data-category="interior"><img src="images/shethint2.webp" alt="Interior" onclick="openModalGal(this.src)"></div>
+      <div class="gallery-item hidden" data-category="interior"><img src="images/shethint1.webp" alt="Interior" onclick="openModalGal(this.src)"></div>
 
       <!-- Plans (no modal open, blurred) -->
-  <div class="gallery-item hidden" data-category="plans" onclick="openmodalplans()">
+  <div class="gallery-item hidden" data-category="plans" onclick="openmodalfloorplans()">
   <img
-    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64"
+    src="images/shethfp1.webp"
+    alt="Plans"
+    class="open-modal"
+    style="cursor: pointer;"
+  >
+</div>
+  <div class="gallery-item hidden" data-category="plans" onclick="openmodalfloorplans()">
+  <img
+    src="images/shethfp2.webp"
+    alt="Plans"
+    class="open-modal"
+    style="cursor: pointer;"
+  >
+</div>  <div class="gallery-item hidden" data-category="plans" onclick="openmodalfloorplans()">
+  <img
+    src="images/shethfp3.webp"
     alt="Plans"
     class="open-modal"
     style="cursor: pointer;"
   >
 </div>
 
-<div class="gallery-item hidden" data-category="plans" onclick="openmodalplans()">
+<div class="gallery-item hidden" data-category="plans" onclick="openmodalfloorplans()">
   <img
-    src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5"
+    src="images/shethfp4.webp"
     alt="Plans"
     class="open-modal"
     style="cursor: pointer;"
@@ -265,58 +282,166 @@
 
              <!-- Gallery Ends  -->
               <!-- Location Advantages Starts -->
-             <div class="loc-bg" id="location">
-  <div class="overlay-loc">
-    <div class="location-container">
-      <div class="location-list">
-        <h2>Location Advantages</h2>
+            <div class="loc-bg" id="location">
+        <div class="overlay-loc">
+            <div class="location-container">
+                <div class="location-list">
+                    <h2>Location Advantages</h2>
 
-        <h3>Hotels</h3>
-        <div class="location-item"><div>Sofitel</div><span>4.9 KM / 9 MINS</span></div>
-        <div class="location-item"><div>Trident BKC</div><span>5.3 KM / 10 MINS</span></div>
-        <div class="location-item"><div>Grand Hyatt</div><span>6.1 KM / 14 MINS</span></div>
+                    <div class="faq-section">
+                        <div class="faq-header active" onclick="toggleFAQ(this)">
+                            <span>Hotels</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-content active">
+                            <div class="location-item">
+                                <div>Sofitel</div>
+                                <span>4.9 KM / 9 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Trident BKC</div>
+                                <span>5.3 KM / 10 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Grand Hyatt</div>
+                                <span>6.1 KM / 14 MINS</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <h3>Healthcare</h3>
-        <div class="location-item"><div>Sion Polyclinic Hospital</div><span>750 M / 2 MINS</span></div>
-        <div class="location-item"><div>Sion Hospital</div><span>1.4 KM / 5 MINS</span></div>
-        <div class="location-item"><div>Kalpana Hospital</div><span>1.7 KM / 7 MINS</span></div>
-        <div class="location-item"><div>K. J. Somaiya Hospital</div><span>3.1 KM / 8 MINS</span></div>
+                    <div class="faq-section">
+                        <div class="faq-header" onclick="toggleFAQ(this)">
+                            <span>Healthcare</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-content">
+                            <div class="location-item">
+                                <div>Sion Polyclinic Hospital</div>
+                                <span>750 M / 2 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Sion Hospital</div>
+                                <span>1.4 KM / 5 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Kalpana Hospital</div>
+                                <span>1.7 KM / 7 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>K. J. Somaiya Hospital</div>
+                                <span>3.1 KM / 8 MINS</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <h3>Retail & Multiplexes</h3>
-        <div class="location-item"><div>Star Mall</div><span>5.1 KM / 9 MINS</span></div>
-        <div class="location-item"><div>Jio World Center</div><span>5.8 KM / 9 MINS</span></div>
-        <div class="location-item"><div>PVR Cinemas</div><span>950 M / 3 MINS</span></div>
-        <div class="location-item"><div>IMAX Wadala</div><span>3.7 KM / 9 MINS</span></div>
-        <div class="location-item"><div>Jio World Drive</div><span>4.3 KM / 10 MINS</span></div>
+                    <div class="faq-section">
+                        <div class="faq-header" onclick="toggleFAQ(this)">
+                            <span>Retail & Multiplexes</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-content">
+                            <div class="location-item">
+                                <div>Star Mall</div>
+                                <span>5.1 KM / 9 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Jio World Center</div>
+                                <span>5.8 KM / 9 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>PVR Cinemas</div>
+                                <span>950 M / 3 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>IMAX Wadala</div>
+                                <span>3.7 KM / 9 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Jio World Drive</div>
+                                <span>4.3 KM / 10 MINS</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <h3>Schools</h3>
-        <div class="location-item"><div>Orchids Int. School</div><span>500 M / 3 MINS</span></div>
-        <div class="location-item"><div>Trinity Int. School</div><span>1.7 KM / 4 MINS</span></div>
-        <div class="location-item"><div>Don Bosco High School</div><span>2.7 KM / 7 MINS</span></div>
-        <div class="location-item"><div>Green Acres School</div><span>2.7 KM / 7 MINS</span></div>
+                    <div class="faq-section">
+                        <div class="faq-header" onclick="toggleFAQ(this)">
+                            <span>Schools</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-content">
+                            <div class="location-item">
+                                <div>Orchids Int. School</div>
+                                <span>500 M / 3 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Trinity Int. School</div>
+                                <span>1.7 KM / 4 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Don Bosco High School</div>
+                                <span>2.7 KM / 7 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Green Acres School</div>
+                                <span>2.7 KM / 7 MINS</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <h3>Colleges</h3>
-        <div class="location-item"><div>SIES College</div><span>1.3 KM / 4 MINS</span></div>
-        <div class="location-item"><div>K. J. Somaiya Medical College</div><span>3.2 KM / 8 MINS</span></div>
-        <div class="location-item"><div>K. J. Somaiya College of Eng.</div><span>3.4 KM / 8 MINS</span></div>
+                    <div class="faq-section">
+                        <div class="faq-header" onclick="toggleFAQ(this)">
+                            <span>Colleges</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-content">
+                            <div class="location-item">
+                                <div>SIES College</div>
+                                <span>1.3 KM / 4 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>K. J. Somaiya Medical College</div>
+                                <span>3.2 KM / 8 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>K. J. Somaiya College of Eng.</div>
+                                <span>3.4 KM / 8 MINS</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <h3>Office & Business Hubs</h3>
-        <div class="location-item"><div>BKC</div><span>5.0 KM / 9 MINS</span></div>
-        <div class="location-item"><div>Godrej Coliseum</div><span>650 M / 5 MINS</span></div>
-        <div class="location-item"><div>Lodha Excelus</div><span>9.4 KM / 15 MINS</span></div>
-      </div>
+                    <div class="faq-section">
+                        <div class="faq-header" onclick="toggleFAQ(this)">
+                            <span>Office & Business Hubs</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-content">
+                            <div class="location-item">
+                                <div>BKC</div>
+                                <span>5.0 KM / 9 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Godrej Coliseum</div>
+                                <span>650 M / 5 MINS</span>
+                            </div>
+                            <div class="location-item">
+                                <div>Lodha Excelus</div>
+                                <span>9.4 KM / 15 MINS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="map-image">
-        <img src="/images/map.webp" alt="Map" onclick="openModal()" />
-      </div>
+                <div class="map-image">
+                    <img src="/images/shethmap.webp" alt="Map" onclick="openModal()" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Enlarged Map -->
+        <div id="mapModal" class="map-modal" onclick="closeModal()">
+            <img src="/images/shethmap.webp" alt="Large Map" class="modal-content" />
+        </div>
     </div>
-  </div>
-
-  <!-- Modal for Enlarged Map -->
-  <div id="mapModal" class="map-modal" onclick="closeModal()">
-    <img src="/images/map.webp" alt="Large Map" class="modal-content" />
-  </div>
-</div>
 
               <!-- Location Advantages Ends -->
                <!-- Contact Section Starts -->
@@ -396,6 +521,43 @@
     </div>
   </div>
 </div>
+ 
+
+
+<!-- Floor plans modal -->
+ <div class="modal-overlay" id="modalfloor">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>Download Now</div>
+      <span id="closeBtnplan">&times;</span>
+    </div>
+    <div class="modal-body">
+      <p>Please enter the details below to get the Floor Plan information.</p>
+
+      <form id="modalContactForm">
+        <div class="input-group">
+          <span>👤</span>
+          <input type="text" id="modalFullName" name="fullName" placeholder="Full Name" required>
+        </div>
+
+        <div class="input-group">
+          <span>📱</span>
+          <input type="tel" id="modalPhone" name="phone" placeholder="Mobile" required>
+        </div>
+
+        <div class="input-group">
+          <span>✉️</span>
+          <input type="email" id="modalEmail" name="email" placeholder="Email" required>
+        </div>
+
+        <button class="submit-btn-mod" id="modalSubmitBtn" type="submit">SUBMIT</button>
+        <div class="loading" id="modalLoading" style="display: none;">Submitting...</div>
+        <div class="success-message" id="modalSuccessMessage" style="display: none;">Thank you! Form submitted.</div>
+        <div class="error-message" id="modalErrorMessage" style="display: none;">Something went wrong. Try again.</div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
  <!-- Modal Ends  -->
@@ -416,14 +578,14 @@
      </a></p>
 
       <p>
-      Company Official URL -<a href="https://www.ssplindia.co.in/" target="_blank" rel="noopener noreferrer"> https://www.ssplindia.co.in/
+      Company Official URL -<a href="https://sheth-realty.com/" target="_blank" rel="noopener noreferrer"> https://sheth-realty.com/
       </a></p>
       <p>SHETH REALTY S-7-4, Pinnacle Business Park, Mahakali Caves Road, Next to Ahura Centre, Andheri (East), Mumbai - 400 093.</p>
 
       <p>Contact No: <a href="tel:+919172281122">022 7124 1663</a></p>
 
       <p class="copyright">
-        COPYRIGHT © 2024. <strong>The Strand Abodes</strong>. ALL RIGHTS RESERVED.
+        COPYRIGHT © 2024. <strong>The Sheth Realty</strong>. ALL RIGHTS RESERVED.
       </p>
 
       <p class="disclaimer">
