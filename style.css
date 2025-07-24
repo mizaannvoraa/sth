@@ -15,7 +15,7 @@
         .navbar {
             background: rgba(26, 28, 30, 0.95);
             backdrop-filter: blur(10px);
-            padding:10px 10px;
+            padding:2px 10px;
             position: fixed;
             top: 0;
             width: 100%;
@@ -208,7 +208,7 @@
             }
             
             .navbar {
-                padding: 1rem;
+                padding: 10px 8px;
             }
             
             .logo {
@@ -503,7 +503,7 @@ padding-top: 70px;
         @media (max-width: 768px) {
             .project-section {
                 padding: 20px 10px;
-                background-attachment: scroll;
+                /* background-attachment: scroll; */
             }
         
             .config-table th,
@@ -528,7 +528,7 @@ padding-top: 70px;
             .config-table th,
             .config-table td {
                 padding: 10px 6px;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
 
             .config-table th {
@@ -536,11 +536,25 @@ padding-top: 70px;
             }
 
             .click-here-btn {
-                padding: 6px 12px;
+                padding: 6px 8px;
                 font-size: 0.65rem;
             }
         }
+        @media (max-width: 390px) {
+               .click-here-btn {
+                padding: 6px 8px;
+                font-size: 0.55rem;
+            }
+                 .config-table th,
+            .config-table td {
+                padding: 6px 3px;
+                font-size: 0.7rem;
+            }
+             .config-table th {
+                font-size: 0.7rem;
+            }
 
+        }
        
         /* Additional animation for table rows */
         .config-table tbody tr {
@@ -592,7 +606,7 @@ padding-top: 70px;
 .text-column ul {
   list-style: disc;
   padding-left: 20px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
 }
 
@@ -619,7 +633,7 @@ padding-top: 70px;
   flex: 1 1 250px;
   list-style: disc;
   padding-left: 20px;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.6;
 }
 
@@ -681,7 +695,7 @@ padding-top: 70px;
 }
   .text-column ul,
   .features-lists ul {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
   }
 
@@ -913,7 +927,7 @@ padding-top: 70px;
         .faq-header {
             background: rgba(255, 215, 0, 0.1);
             color: gold;
-            font-size: 13px;
+            font-size: 15px;
             padding: 12px 15px;
             cursor: pointer;
             display: flex;
@@ -964,7 +978,7 @@ padding-top: 70px;
             margin: 5px 0;
             border-left: 3px solid gold;
             border-radius: 3px;
-            font-size: 11px;
+            font-size: 14px;
         }
 
         .location-item span {
@@ -1022,12 +1036,12 @@ padding-top: 70px;
             }
 
             .location-item {
-                font-size: 10px;
+                font-size: 13px;
                 padding: 6px 12px;
             }
 
             .faq-header {
-                font-size: 12px;
+                font-size: 14px;
                 padding: 10px 12px;
             }
 
@@ -1445,6 +1459,7 @@ padding-top: 70px;
 
       .enquire-now {
         background-color: #262829;
+        border-right: 2px solid white;
       }
 
       .call-now {
