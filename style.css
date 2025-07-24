@@ -695,7 +695,7 @@ padding-top: 70px;
 }
   .text-column ul,
   .features-lists ul {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
   }
 
@@ -1137,7 +1137,7 @@ padding-top: 70px;
     .form-group input {
       width: 100%;
       padding: 14px 20px 14px 50px;
-      background-color: #1c1c1c;
+      background-color: #fff;
       border: 1px solid #333;
       color: #fff;
       border-radius: 4px;
@@ -1145,7 +1145,7 @@ padding-top: 70px;
     }
 
     .form-group input::placeholder {
-      color: #999;
+      color: #525151;
     }
 
     .form-group .icon {
