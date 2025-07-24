@@ -424,3 +424,108 @@ function toggleFAQ(header) {
                 closeModal();
             }
         });
+          class AmenitiesSlider {
+            constructor() {
+                this.currentTab = 'terra';
+                this.currentSlide = 0;
+                this.cardsPerView = this.getCardsPerView();
+                this.init();
+                this.setupEventListeners();
+            }
+
+            init() {
+                this.updateSlider();
+                window.addEventListener('resize', () => {
+                    this.cardsPerView = this.getCardsPerView();
+                    this.currentSlide = 0;
+                    this.updateSlider();
+                });
+            }
+
+            getCardsPerView() {
+                const width = window.innerWidth;
+                if (width <= 480) return 1;
+                if (width <= 768) return 2;
+                if (width <= 1024) return 3;
+                return 4;
+            }
+
+            setupEventListeners() {
+                // Tab buttons
+                document.querySelectorAll('.tab-button').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        this.switchTab(e.target.dataset.tab);
+                    });
+                });
+
+                // Slider controls
+                document.getElementById('prevBtn').addEventListener('click', () => {
+                    this.previousSlide();
+                });
+
+                document.getElementById('nextBtn').addEventListener('click', () => {
+                    this.nextSlide();
+                });
+            }
+
+            switchTab(tabName) {
+                // Update active tab button
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+
+                // Update active tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(tabName).classList.add('active');
+
+                this.currentTab = tabName;
+                this.currentSlide = 0;
+                this.updateSlider();
+            }
+
+            getCurrentCards() {
+                return document.querySelectorAll(`#${this.currentTab}-cards .amenity-card`);
+            }
+
+            getMaxSlides() {
+                const totalCards = this.getCurrentCards().length;
+                return Math.max(0, totalCards - this.cardsPerView);
+            }
+
+            updateSlider() {
+                const cardsWrapper = document.querySelector(`#${this.currentTab}-cards`);
+                const cardWidth = 280 + 20; // card width + gap
+                const translateX = -this.currentSlide * cardWidth;
+                
+                cardsWrapper.style.transform = `translateX(${translateX}px)`;
+
+                // Update button states
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                
+                prevBtn.disabled = this.currentSlide === 0;
+                nextBtn.disabled = this.currentSlide >= this.getMaxSlides();
+            }
+
+            nextSlide() {
+                if (this.currentSlide < this.getMaxSlides()) {
+                    this.currentSlide++;
+                    this.updateSlider();
+                }
+            }
+
+            previousSlide() {
+                if (this.currentSlide > 0) {
+                    this.currentSlide--;
+                    this.updateSlider();
+                }
+            }
+        }
+
+        // Initialize the slider when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new AmenitiesSlider();
+        });
