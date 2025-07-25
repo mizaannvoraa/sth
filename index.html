@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+        <meta name="robots" content="noindex, nofollow">
     <!-- Google Tag Manager -->
     <script>
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -108,61 +110,63 @@
 
        <!-- Slider Ends -->
         <!-- Landmark Starts -->
-          <section class="landmark-section" id="overview">
-  <h2 class="section-title-land">THE LANDMARK CRAFTED & CURATED</h2>
+              <section class="landmark-section" id="overview">
+        <h2 class="section-title-land">The Treasured Life Unfolds</h2>
+        <div class="landmark-container">
+            <!-- Left: Feature Items -->
+            <div class="features">
+                <div class="feature">
+                    <img src="images/sb8.png" alt="Compass Icon" />
+                    <p>Centrally located project with excellent connectivity.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/sb5.png" alt="View Icon" />
+                    <p>Unobstructed views of Bandra-Worli Sea Link, BKC & lush greens – Somaiya Grounds.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/sb7.png" alt="Temple Icon" />
+                    <p>Exclusive temple within the development.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/sb6.png" alt="Tower Icon" />
+                    <p>23-storey tower on two-acre development with 3 basements & 3 podiums.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/sb4.png" alt="Residences Icon" />
+                    <p>Upscale 2 & 3 bed residences with majestic decks.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/sb1.png" alt="Amenities Icon" />
+                    <p>45+ lifestyle amenities.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/sb3.png" alt="Clubhouse Icon" />
+                    <p>25,000 sq. ft. one-of-its-kind sky promenade + rooftop clubhouse.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/sb2.png" alt="Garden Icon" />
+                    <p>Landscaped garden of 11,000 sq. ft.</p>
+                </div>
+            </div>
+            
+            <!-- Right: Building Image with Video Play Button -->
+            <div class="building-image">
+                <div class="video-container" onclick="openVideo()">
+                    <img src="images/shethel2.webp" alt="Building Image">
+                    <div class="play-button"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="landmark-container">
-    <!-- Left: Feature Items -->
-    <div class="features">
-      
-      <div class="feature">
-        <img src="images/sb8.png" alt="Compass Icon" />
-        <p>Centrally located project with excellent connectivity.</p>
-      </div>
-
-      <div class="feature">
-        <img src="images/sb5.png" alt="View Icon" />
-        <p>Unobstructed views of Bandra-Worli Sea Link, BKC & lush greens – Somaiya Grounds.</p>
-      </div>
-
-      <div class="feature">
-        <img src="images/sb7.png" alt="Temple Icon" />
-        <p>Exclusive temple within the development.</p>
-      </div>
-
-      <div class="feature">
-        <img src="images/sb6.png" alt="Tower Icon" />
-        <p>23-storey tower on two-acre development with 3 basements & 2 podiums.</p>
-      </div>
-
-      <div class="feature">
-        <img src="images/sb4.png" alt="Residences Icon" />
-        <p>Upscale 2 & 3 bed residences with majestic decks.</p>
-      </div>
-
-      <div class="feature">
-        <img src="images/sb1.png" alt="Amenities Icon" />
-        <p>45+ lifestyle amenities.</p>
-      </div>
-
-      <div class="feature">
-        <img src="images/sb3.png" alt="Clubhouse Icon" />
-        <p>25,000 sq. ft. one-of-its-kind sky promenade + rooftop clubhouse.</p>
-      </div>
-
-      <div class="feature">
-        <img src="images/sb2.png" alt="Garden Icon" />
-        <p>Landscaped garden of 11,000 sq. ft.</p>
-      </div>
-
+    <!-- Video Overlay -->
+    <div class="video-overlay" id="videoOverlay">
+        <div class="video-wrapper">
+            <button class="close-button" onclick="closeVideo()">&times;</button>
+            <iframe id="videoFrame" src="" allowfullscreen></iframe>
+        </div>
     </div>
 
-    <!-- Right: Image -->
-    <div class="building-image">
-      <img src="images/sliderbelowimage.jpg" alt="Building Image">
-    </div>
-  </div>
-</section>
 
          <!-- Landmark Ends -->
           <!-- Amenties Separate Section Starts  -->
@@ -180,14 +184,7 @@
         <div class="tab-content active" id="terra">
             <div class="slider-container">
                 <div class="cards-wrapper" id="terra-cards">
-                    <div class="amenity-card">
-                        <img src="images/terra/imgi_16_MULTIPURPOSE SPORTS COURT.png" alt="MULTIPURPOSE SPORTS COURT">
-                      <div class="amenity-title">MULTIPURPOSE SPORTS COURT</div>
-                    </div>
-                    <div class="amenity-card">
-                        <img src="images/terra/imgi_17_BOX CRICKET -TURF.png" alt="BOX CRICKET/TURF">
-                      <div class="amenity-title">BOX CRICKET/TURF</div>
-                    </div>
+                   
                     <div class="amenity-card">
                         <img src="images/terra/imgi_18_WALKING TRACK.png" alt="JOGGING/WALKING TRACK">
                       <div class="amenity-title">JOGGING/WALKING TRACK</div>
@@ -207,6 +204,14 @@
                      <div class="amenity-card">
                         <img src="images/terra/imgi_22_LANDSCAPE GARDEN.png" alt="LANDSCAPE GARDEN">
                       <div class="amenity-title">LANDSCAPE GARDEN</div>
+                    </div>
+                     <div class="amenity-card">
+                        <img src="images/terra/imgi_16_MULTIPURPOSE SPORTS COURT.png" alt="MULTIPURPOSE SPORTS COURT">
+                      <div class="amenity-title">MULTIPURPOSE SPORTS COURT</div>
+                    </div>
+                    <div class="amenity-card">
+                        <img src="images/terra/imgi_17_BOX CRICKET -TURF.png" alt="BOX CRICKET/TURF">
+                      <div class="amenity-title">BOX CRICKET/TURF</div>
                     </div>
                      <div class="amenity-card">
                         <img src="images/terra/imgi_23_ENTRANCE FEATURE WALL.png" alt="ENTRANCE FEATURE WALL">
@@ -355,7 +360,7 @@
           <!-- Project Configuration Starts -->
             <section class="project-section" id="configuration">
         <div class="content-container">
-            <h1 class="section-title">Project Configuration</h1>
+            <h1 class="section-title">Promont Configuration: Crafted for Comfort, Designed for Views</h1>
             <!-- 2 BED Residences 650-750 SQ.FT
 3 BED Residences 950-1200 SQ.FT -->
 
@@ -386,55 +391,6 @@
         </div>
     </section>
            <!-- Project Configuration Ends  -->
-            <!-- Highlights Section Starts -->
-        <div class="highlights-section ">
-  <!-- First Section -->
- <div class="high-cont">
-     
-
-  <!-- Second Section -->
-  <div class="section second-section">
-    <div class="image-column">
-      <img src="images/shethpool.webp" alt="Project Amenities">
-    </div>
-    <div class="text-column">
-      <h2>Planned and Perfected, Because You Deserve the Best</h2>
-      <div class="features-lists">
-        <ul>
-          <li>Infinity Swimming Pool</li>
-          <li>Kids Pool</li>
-          <li>Jacuzzi</li>
-          <li>Relaxing Pool Deck</li>
-          <li>Changing Rooms</li>
-          <li>Open Shower</li>
-          <li>Sky Cabanas</li>
-          <li>Leisure Seating</li>
-          <li>Skyplex</li>
-          <li>Bonfire Lounge</li>
-          <li>Juice Bar</li>
-          <li>Yoga Lawn</li>
-        </ul>
-        <ul>
-          <li>Zen Garden</li>
-          <li>Reflexology Pathway</li>
-          <li>Open Gym/Sky Fitness</li>
-          <li>Meditation Deck</li>
-          <li>Night Sky Observatory Deck</li>
-          <li>Jogging Loop</li>
-          <li>Tai-Chi Lawn</li>
-          <li>Cozy Sit Out Corners</li>
-          <li>Dance and Party Deck</li>
-          <li>Zumba Deck</li>
-          <li>Landscape Garden</li>
-        </ul>
-      </div>
-    </div>
-  </div>
- </div>
-</div>
-
-
-            <!-- Highlights Section Ends -->
              <!-- Gallery Starts -->
                <div class="gallery-container" id="gallery">
     <h1 class="gallery-title">GALLERY</h1>
@@ -449,7 +405,8 @@
     </div>
 <!-- videos  -->
  <!-- Videos -->
-<div class="gallery-item hidden" data-category="video">
+<div class="main-gallery">
+  <div class="gallery-item hidden" data-category="video">
   <div class="video-wrapper">
     <iframe
       width="100%"
@@ -461,6 +418,7 @@
   </div>
   <p class="caption">Sample Video Tour</p>
 </div>
+</div>
 
 <!-- Videos  -->
 <div class="gallery-grid">
@@ -470,19 +428,18 @@
  <div class="gallery-item" data-category="elevation"><img src="images/shethel3.webp" alt="Elevation" onclick="openModalGal(this.src)"></div>
 
       <!-- Amenities -->
-      <!-- Amenities -->
 <div class="gallery-item hidden" data-category="amenities">
   <div class="image-wrapper">
     <img src="images/shetham1.webp" alt="Amenities" onclick="openModalGal(this.src)">
   </div>
-  <p class="caption">INFINITY SWIMMING POOL</p>
+  <p class="caption">DANCE AND PARTY DECK</p>
 </div>
 
 <div class="gallery-item hidden" data-category="amenities">
   <div class="image-wrapper">
     <img src="images/shetham2.webp" alt="Amenities" onclick="openModalGal(this.src)">
   </div>
-  <p class="caption">DANCE AND PARTY DECK</p>
+  <p class="caption">INFINITY SWIMMING POOL</p>
 </div>
 
 <div class="gallery-item hidden" data-category="amenities">
@@ -558,11 +515,11 @@
                     <h2>Location Advantages</h2>
 
                     <div class="faq-section">
-                        <div class="faq-header active" onclick="toggleFAQ(this)">
+                        <div class="faq-header " onclick="toggleFAQ(this)">
                             <span>Hotels</span>
                             <span class="faq-icon">+</span>
                         </div>
-                        <div class="faq-content active">
+                        <div class="faq-content ">
                             <div class="location-item">
                                 <div>Sofitel</div>
                                 <span>4.9 KM / 9 MINS</span>
@@ -701,18 +658,73 @@
                 </div>
 
                 <div class="map-image">
-                    <img src="/images/shethmap.webp" alt="Map" onclick="openModal()" />
+<div class="map-thumbnail" onclick="playVideo()">
+  <img src="/images/mapimagesheth.jpg" alt="Map Thumbnail" id="thumbnail" />
+  <div class="play-button-map">&#9658;</div>
+</div>
+
+<div id="youtubeEmbed" class="youtube-embed-map"></div>
                 </div>
             </div>
         </div>
 
         <!-- Modal for Enlarged Map -->
         <div id="mapModal" class="map-modal" onclick="closeModal()">
-            <img src="/images/shethmap.webp" alt="Large Map" class="modal-content" />
+            <img src="/images/mapimagesheth.jpg" alt="Large Map" class="modal-content" />
         </div>
     </div>
 
               <!-- Location Advantages Ends -->
+               <!-- Testimonial Section Starts -->
+             <div class="testimonial-main-container">
+                  <div class="testimonial-section-title">Testimonial Video</div>
+  <div class="testimonial-title-line"></div>
+
+  <div class="testimonial-video-container" id="testimonialVideoContainer">
+    <img src="images/testimage.webp" alt="Testimonial Thumbnail" class="testimonial-thumbnail-img" id="testimonialThumbnail" />
+    <div class="testimonial-play-btn" id="testimonialPlayButton"></div>
+    <video class="testimonial-video-element" id="testimonialVideo" controls>
+      <source src="images/testvideo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+             </div>
+
+                <!-- Testimonial Section Ends --> 
+                 <!-- Viviana Mall Section Starts   -->
+                    <section class="journey-section">
+        <div class="journey-content">
+            <div class="journey-text">
+                <h2>OUR JOURNEY</h2>
+                <p class="subtitle">A FOOTPRINT OF LUXURY.<br>A FUTURE OF FINE LIVING</p>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <h3>12</h3>
+                        <p>PROJECTS LAUNCHED</p>
+                    </div>
+                    <div class="stat">
+                        <h3>5000+ CR</h3>
+                        <p>SALES ACHIEVED</p>
+                    </div>
+                    <div class="stat">
+                        <h3>1800+</h3>
+                        <p>HAPPY HOMES</p>
+                    </div>
+                    <div class="stat">
+                        <h3>450+</h3>
+                        <p>TEAM STRENGTH</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="journey-image">
+                <img src="images/vivianamall.jpg" alt="Viviana Mall" />
+            </div>
+        </div>
+    </section>
+
+                 <!-- Viviana Mall Section Ends   -->
                <!-- Contact Section Starts -->
                <div class="contact-section">
   <div class="map-container">
@@ -724,20 +736,19 @@
   <div class="form-container" id="enquire-form">
     <h1 class="contact-title">CONTACT US</h1>
     <div class="title-underline"></div>
-
     <form id="contactForm">
       <div class="form-group">
-        <span class="icon">👤</span>
+        <span class="icon"><i class="ri-user-3-line"></i></span>
         <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
       </div>
 
       <div class="form-group">
-        <span class="icon">📞</span>
+        <span class="icon"><i class="ri-phone-line"></i></span>
         <input type="tel" id="phone" name="phone" placeholder="Mobile" required>
       </div>
 
       <div class="form-group">
-        <span class="icon">📧</span>
+        <span class="icon"><i class="ri-mail-line"></i></span>
         <input type="email" id="email" name="email" placeholder="Email" required>
       </div>
 
@@ -753,14 +764,13 @@
     </div>
   </div>
 </div>
-
-
                <!-- Contact Section Ends  -->
+
 <!-- Modal Starts -->
 <div class="modal-overlay" id="modal">
   <div class="modal-box">
     <div class="modal-header">
-      <div>Enquire Now</div>
+      <div>Smart Payment. Smarter Living – Enquire for 10:20:30:40 Payment Plan Now !</div>
       <span id="closeBtn">&times;</span>
     </div>
     <div class="modal-body">
@@ -768,17 +778,17 @@
 
       <form id="modalContactForm">
         <div class="input-group">
-          <span>👤</span>
+          <span><i class="ri-user-line"></i></span>
           <input type="text" id="modalFullName" name="fullName" placeholder="Full Name" required>
         </div>
 
         <div class="input-group">
-          <span>📱</span>
+          <span><i class="ri-phone-line"></i></span>
           <input type="tel" id="modalPhone" name="phone" placeholder="Mobile" required>
         </div>
 
         <div class="input-group">
-          <span>✉️</span>
+          <span><i class="ri-mail-line"></i></span>
           <input type="email" id="modalEmail" name="email" placeholder="Email" required>
         </div>
 
@@ -794,42 +804,40 @@
 
 
 <!-- Floor plans modal -->
- <div class="modal-overlay" id="modalfloor">
+  <div class="modal-overlay" id="modalfloor">
   <div class="modal-box">
     <div class="modal-header">
       <div>Download Now</div>
       <span id="closeBtnplan">&times;</span>
     </div>
     <div class="modal-body">
-      <p>Please enter the details below to get the Floor Plan information.</p>
+      <p>Fill in your contact details to view the floor plan.</p>
 
-      <form id="modalContactForm">
+      <form id="modalContactFormdown">
         <div class="input-group">
-          <span>👤</span>
-          <input type="text" id="modalFullName" name="fullName" placeholder="Full Name" required>
+          <span><i class="ri-user-3-line"></i></span>
+          <input type="text" id="modaldownFullName" name="fullName" placeholder="Full Name" required>
         </div>
 
         <div class="input-group">
-          <span>📱</span>
-          <input type="tel" id="modalPhone" name="phone" placeholder="Mobile" required>
+          <span><i class="ri-phone-line"></i></span>
+          <input type="tel" id="modaldownPhone" name="phone" placeholder="Mobile" required>
         </div>
 
         <div class="input-group">
-          <span>✉️</span>
-          <input type="email" id="modalEmail" name="email" placeholder="Email" required>
+          <span><i class="ri-mail-line"></i></span>
+          <input type="email" id="modaldownEmail" name="email" placeholder="Email" required>
         </div>
 
-        <button class="submit-btn-mod" id="modalSubmitBtn" type="submit">SUBMIT</button>
-        <div class="loading" id="modalLoading" style="display: none;">Submitting...</div>
-        <div class="success-message" id="modalSuccessMessage" style="display: none;">Thank you! Form submitted.</div>
-        <div class="error-message" id="modalErrorMessage" style="display: none;">Something went wrong. Try again.</div>
+        <button class="submit-btn-mod" id="modalSubmitBtndown" type="submit">Submit</button>
+        <div class="loading" id="modalLoadingdown" style="display: none;">Submitting...</div>
+        <div class="success-message" id="modalSuccessMessagedown" style="display: none;">Thank you! Form submitted.</div>
+        <div class="error-message" id="modalErrorMessagedown" style="display: none;">Something went wrong. Try again.</div>
       </form>
     </div>
   </div>
 </div>
-
-
- <!-- Modal Ends  -->
+ <!-- floor plan Modal Ends  -->
   <!-- Fixed buttons for mobile -->
   <div class="mobile-buttons">
     <a onclick="openmodalplans()" class="enquire-now">Enquire Now</a>
@@ -858,11 +866,7 @@
       </p>
 
       <p class="disclaimer">
-        <strong>Disclaimer:</strong> The plans, specifications, images, impressions and other details are figurative and are subject to changes/ modifications as per the Developers discretion, under applicable laws, without any prior intimation, notice or announcement . Artist’s impressions symbolise the amenities, specifications, images and other details
-pertaining to the development. Tolerance of +/- 3% is possible in the unit areas on account of design and construction variances. Brand names reflecting herein are subject to final decision of the project architect. The prospective buyer of this development shall be governed only by the terms and conditions of the agreement
-for sale to be executed with the Developer, and no details mentioned in this material shall in any way be construed as an offer and/or contract. This material has been created keeping in mind the provisions of the Real Estate (Regulation and Development) Act, 2016 (RERA) applicable for projects in Maharashtra and project details
-as per RERA rules and guidelines have been uploaded on the authorised MAHA RERA website. Kindly personally visit the project site and interact with Developers sales team only to verify all the details of the including area, amenities, services, terms of sales & payments and other relevant deatils. The Developer is not liable and/or
-responsible for any information gathered by you from any unauthorized or unverified website/ broker (whether online and/or offline) about the Developer, its projects and its sister concerns.
+        <strong>Disclaimer:</strong> All plans, images, and specifications are indicative and subject to change as per the Developer’s discretion and applicable laws, without prior notice. Artist’s impressions are for representation only. Unit areas may vary by ±3% due to design/construction. Brand names and features are subject to final architect approval. This material does not constitute an offer or contract; the sale is governed only by the agreement for sale. Details comply with RERA norms and are available on the official MAHA RERA website. Please verify all information directly with the Developer’s authorized team. The Developer is not responsible for details from unauthorised sources.
 
       </p>
     </div>

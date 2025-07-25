@@ -171,6 +171,23 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeModal() {
     document.getElementById('mapModal').style.display = 'none';
   }
+  function playVideo() {
+    // Hide thumbnail and play button
+    document.querySelector('.map-thumbnail').style.display = 'none';
+
+    // Show embedded YouTube video
+    const embedContainer = document.getElementById('youtubeEmbed');
+    embedContainer.style.display = 'block';
+    embedContainer.innerHTML = `
+      <iframe 
+        src="https://www.youtube.com/embed/D6n0h9ktlmA?si=G-f3b_7r91DVR7g8?autoplay=1" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+      </iframe>
+    `;
+  }
+  // Location Advantage Ends 
 // Contcat form start 
  function getUrlParameters() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -419,113 +436,362 @@ function toggleFAQ(header) {
         }
 
         // Close modal with escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
+        // Amenties Separate Section start 
+      document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
+
+class AmenitiesSlider {
+    constructor() {
+        this.currentTab = 'terra';
+        this.currentSlide = 0;
+        this.cardsPerView = this.getCardsPerView();
+        this.tabs = ['terra', 'pod', 'ciel']; // Define tab order
+        this.autoSlideInterval = null;
+        this.autoSlideDelay = 3000; // 3 seconds between slides
+        this.init();
+        this.setupEventListeners();
+        this.startAutoSlide();
+    }
+
+    init() {
+        this.updateSlider();
+        window.addEventListener('resize', () => {
+            this.cardsPerView = this.getCardsPerView();
+            this.currentSlide = 0;
+            this.updateSlider();
         });
-          class AmenitiesSlider {
-            constructor() {
-                this.currentTab = 'terra';
-                this.currentSlide = 0;
-                this.cardsPerView = this.getCardsPerView();
-                this.init();
-                this.setupEventListeners();
-            }
+    }
 
-            init() {
-                this.updateSlider();
-                window.addEventListener('resize', () => {
-                    this.cardsPerView = this.getCardsPerView();
-                    this.currentSlide = 0;
-                    this.updateSlider();
-                });
-            }
+    getCardsPerView() {
+        const width = window.innerWidth;
+        if (width <= 480) return 1;
+        if (width <= 768) return 2;
+        if (width <= 1024) return 3;
+        return 4;
+    }
 
-            getCardsPerView() {
-                const width = window.innerWidth;
-                if (width <= 480) return 1;
-                if (width <= 768) return 2;
-                if (width <= 1024) return 3;
-                return 4;
-            }
+    setupEventListeners() {
+        // Tab buttons
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                this.switchTab(e.target.dataset.tab);
+                this.restartAutoSlide(); // Restart auto slide when user interacts
+            });
+        });
 
-            setupEventListeners() {
-                // Tab buttons
-                document.querySelectorAll('.tab-button').forEach(button => {
-                    button.addEventListener('click', (e) => {
-                        this.switchTab(e.target.dataset.tab);
-                    });
-                });
+        // Slider controls
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            this.previousSlide();
+            this.restartAutoSlide(); // Restart auto slide when user interacts
+        });
 
-                // Slider controls
-                document.getElementById('prevBtn').addEventListener('click', () => {
-                    this.previousSlide();
-                });
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            this.nextSlide();
+            this.restartAutoSlide(); // Restart auto slide when user interacts
+        });
 
-                document.getElementById('nextBtn').addEventListener('click', () => {
-                    this.nextSlide();
-                });
-            }
+        // Pause auto slide on hover
+        const sliderContainer = document.querySelector('.slider-container');
+        sliderContainer.addEventListener('mouseenter', () => {
+            this.stopAutoSlide();
+        });
 
-            switchTab(tabName) {
-                // Update active tab button
-                document.querySelectorAll('.tab-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+        sliderContainer.addEventListener('mouseleave', () => {
+            this.startAutoSlide();
+        });
+    }
 
-                // Update active tab content
-                document.querySelectorAll('.tab-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById(tabName).classList.add('active');
+    switchTab(tabName) {
+        // Update active tab button
+        document.querySelectorAll('.tab-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
 
-                this.currentTab = tabName;
-                this.currentSlide = 0;
-                this.updateSlider();
-            }
+        // Update active tab content
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.getElementById(tabName).classList.add('active');
 
-            getCurrentCards() {
-                return document.querySelectorAll(`#${this.currentTab}-cards .amenity-card`);
-            }
+        this.currentTab = tabName;
+        this.currentSlide = 0;
+        this.updateSlider();
+    }
 
-            getMaxSlides() {
-                const totalCards = this.getCurrentCards().length;
-                return Math.max(0, totalCards - this.cardsPerView);
-            }
+    getCurrentCards() {
+        return document.querySelectorAll(`#${this.currentTab}-cards .amenity-card`);
+    }
 
-            updateSlider() {
-                const cardsWrapper = document.querySelector(`#${this.currentTab}-cards`);
-                const cardWidth = 280 + 20; // card width + gap
-                const translateX = -this.currentSlide * cardWidth;
-                
-                cardsWrapper.style.transform = `translateX(${translateX}px)`;
+    getMaxSlides() {
+        const totalCards = this.getCurrentCards().length;
+        return Math.max(0, totalCards - this.cardsPerView);
+    }
 
-                // Update button states
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
-                
-                prevBtn.disabled = this.currentSlide === 0;
-                nextBtn.disabled = this.currentSlide >= this.getMaxSlides();
-            }
+    updateSlider() {
+        const cardsWrapper = document.querySelector(`#${this.currentTab}-cards`);
+        const cardWidth = 280 + 20; // card width + gap
+        const translateX = -this.currentSlide * cardWidth;
+        
+        cardsWrapper.style.transform = `translateX(${translateX}px)`;
 
-            nextSlide() {
-                if (this.currentSlide < this.getMaxSlides()) {
-                    this.currentSlide++;
-                    this.updateSlider();
-                }
-            }
+        // Update button states
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        prevBtn.disabled = this.currentSlide === 0;
+        nextBtn.disabled = this.currentSlide >= this.getMaxSlides();
+    }
 
-            previousSlide() {
-                if (this.currentSlide > 0) {
-                    this.currentSlide--;
-                    this.updateSlider();
-                }
-            }
+    nextSlide() {
+        if (this.currentSlide < this.getMaxSlides()) {
+            this.currentSlide++;
+            this.updateSlider();
         }
+    }
 
-        // Initialize the slider when the page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            new AmenitiesSlider();
+    previousSlide() {
+        if (this.currentSlide > 0) {
+            this.currentSlide--;
+            this.updateSlider();
+        }
+    }
+
+    // Auto slide functionality
+    startAutoSlide() {
+        this.stopAutoSlide(); // Clear any existing interval
+        this.autoSlideInterval = setInterval(() => {
+            this.autoNextSlide();
+        }, this.autoSlideDelay);
+    }
+
+    stopAutoSlide() {
+        if (this.autoSlideInterval) {
+            clearInterval(this.autoSlideInterval);
+            this.autoSlideInterval = null;
+        }
+    }
+
+    restartAutoSlide() {
+        this.stopAutoSlide();
+        setTimeout(() => {
+            this.startAutoSlide();
+        }, 1000); // Wait 1 second before restarting
+    }
+
+    autoNextSlide() {
+        // If we're at the end of current tab's slides
+        if (this.currentSlide >= this.getMaxSlides()) {
+            // Move to next tab
+            const currentTabIndex = this.tabs.indexOf(this.currentTab);
+            const nextTabIndex = (currentTabIndex + 1) % this.tabs.length;
+            const nextTab = this.tabs[nextTabIndex];
+            
+            this.switchTab(nextTab);
+        } else {
+            // Move to next slide in current tab
+            this.currentSlide++;
+            this.updateSlider();
+        }
+    }
+
+    // Method to pause/resume auto slide (useful for debugging or user preference)
+    toggleAutoSlide() {
+        if (this.autoSlideInterval) {
+            this.stopAutoSlide();
+        } else {
+            this.startAutoSlide();
+        }
+    }
+
+    // Cleanup method
+    destroy() {
+        this.stopAutoSlide();
+        // Remove event listeners if needed
+    }
+}
+
+// Initialize the slider when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    window.amenitiesSlider = new AmenitiesSlider();
+});
+
+// Optional: Add global controls for debugging
+// Uncomment these if you want to manually control the auto slide
+// window.pauseSlider = () => window.amenitiesSlider.stopAutoSlide();
+// window.resumeSlider = () => window.amenitiesSlider.startAutoSlide();
+// window.toggleSlider = () => window.amenitiesSlider.toggleAutoSlide();
+        // Amenties Separate Section ends
+        // Testimonial start 
+        const playButton = document.getElementById('testimonialPlayButton');
+    const thumbnail = document.getElementById('testimonialThumbnail');
+    const video = document.getElementById('testimonialVideo');
+
+    playButton.addEventListener('click', () => {
+      thumbnail.style.display = 'none';
+      playButton.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
+    });
+        // Testimonial End
+        // Landmark start
+           const YOUTUBE_VIDEO_ID = 'Et55djvmkUw?si=XggKwGhivgnqQm-f'; // Example video ID
+        
+        function openVideo() {
+            const overlay = document.getElementById('videoOverlay');
+            const iframe = document.getElementById('videoFrame');
+            
+            // Set the YouTube embed URL with enhanced parameters for immediate play
+            iframe.src = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&fs=1&cc_load_policy=0&iv_load_policy=3&autohide=0&start=0`;
+            
+            // Show the overlay
+            overlay.style.display = 'flex';
+            
+            // Prevent body scrolling
+            document.body.style.overflow = 'hidden';
+            
+            // Focus on iframe to ensure autoplay works
+            setTimeout(() => {
+                iframe.focus();
+            }, 100);
+        }
+        
+        function closeVideo() {
+            const overlay = document.getElementById('videoOverlay');
+            const iframe = document.getElementById('videoFrame');
+            
+            // Hide the overlay
+            overlay.style.display = 'none';
+            
+            // Stop the video by clearing the src
+            iframe.src = '';
+            
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close video when clicking outside the video area
+        document.getElementById('videoOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideo();
+            }
         });
+        
+        // Close video with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideo();
+            }
+        });
+
+        // Preload video on page load for faster playback
+        window.addEventListener('load', function() {
+            const iframe = document.getElementById('videoFrame');
+            // Preload the video thumbnail
+            const preloadLink = document.createElement('link');
+            preloadLink.rel = 'preload';
+            preloadLink.href = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`;
+            preloadLink.as = 'image';
+            document.head.appendChild(preloadLink);
+        });
+        // Landmark ends 
+
+        // Floor Plan Modal Start 
+        
+  function getUrlParameters() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+        utm_source: urlParams.get('utm_source') || '',
+        utm_ad: urlParams.get('utm_ad') || '',
+        utm_campaign: urlParams.get('utm_campaign') || '',
+        utm_placement: urlParams.get('utm_placement') || '',
+        utm_keyword: urlParams.get('utm_keyword') || '',
+        gclid: urlParams.get('gclid') || '',
+        fbclid: urlParams.get('fbclid') || ''
+    };
+}
+
+document.getElementById('modalContactFormdown').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const fullName = document.getElementById('modaldownFullName').value.trim();
+    const phone = document.getElementById('modaldownPhone').value.trim();
+    const email = document.getElementById('modaldownEmail').value.trim();
+
+    const submitBtn = document.getElementById('modalSubmitBtndown');
+    const loading = document.getElementById('modalLoadingdown');
+    const successMessage = document.getElementById('modalSuccessMessagedown');
+    const errorMessage = document.getElementById('modalErrorMessagedown');
+
+    // Reset messages
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+
+    // Validate fields
+    if (!fullName || !phone || !email) {
+        errorMessage.textContent = "All fields are required.";
+        errorMessage.style.display = 'block';
+        return;
+    }
+
+    // Show loading
+    loading.style.display = 'block';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    const formData = {
+        fullName,
+        email,
+        phone,
+        ...getUrlParameters()
+    };
+
+   try {
+    await fetch('https://script.google.com/macros/s/AKfycbwIemIZV7O7eEbC-wgBurO9Bile0I7tcI93epsC1Dxf5X2wX2ajEpdwAldEgf9Grt9Q/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+    });
+
+    // Show success message
+    successMessage.style.display = 'block';
+    document.getElementById('modalContactFormdown').reset();
+
+    // === Download the PDF ===
+    const pdfUrl = 'Brochure.pdf'; // Change t  his path
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = 'Brochure.pdf'; // Name of the downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Redirect after a short delay
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+        window.location.href = 'thank-you.html';
+    }, 1000);
+
+} catch (err) {
+    console.error('Form submit error:', err);
+    errorMessage.textContent = "Submission failed. Please try again.";
+    errorMessage.style.display = 'block';
+}
+ finally {
+        loading.style.display = 'none';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'SUBMIT';
+    }
+});
+
+// Limit phone input to 10 digits
+document.getElementById('modaldownPhone').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length > 10) value = value.slice(0, 10);
+    e.target.value = value;
+});
+        // Floor plans modal ends 
